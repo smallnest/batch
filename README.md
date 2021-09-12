@@ -1,5 +1,7 @@
 # batch
 
+[![License](https://img.shields.io/:license-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![GoDoc](https://godoc.org/github.com/smallnest/batch?status.png)](http://godoc.org/github.com/smallnest/batch)  [![travis](https://travis-ci.org/smallnest/batch.svg?branch=master)](https://travis-ci.org/smallnest/batch) [![Go Report Card](https://goreportcard.com/badge/github.com/smallnest/batch)](https://goreportcard.com/report/github.com/smallnest/batch) [![coveralls](https://coveralls.io/repos/smallnest/batch/badge.svg?branch=master&service=github)](https://coveralls.io/github/smallnest/batch?branch=master) 
+
 
 > 仅支持Go 1.18及以上版本, 因为泛型的原因。
 
@@ -15,5 +17,21 @@
 
 
 ## 使用方法
+
+```
+    in := make(chan int, 100)
+	go func() {
+        for {
+            // 往in中塞数据
+            ......
+        }
+		
+	}()
+
+	
+	Batch(in, 80, func(items []int) {
+		// 处理一批数据
+	})
+```
 
 
